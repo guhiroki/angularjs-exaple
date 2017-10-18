@@ -12,11 +12,11 @@ app.controller('listController', ['$scope', ($scope) => {
                 $scope.task = new Task();
             }
         }
-        $scope.deleteItem = (task) => {
+        $scope.deletItem = (task) => {
             var index = $scope.todoList.indexOf(task);
             $scope.todoList.splice(index,1);
         }
-        $scope.deleteItens = () => {
+        $scope.deletItems = () => {
             var newList = [];
             $scope.todoList.forEach((task) => {
                 if(!task.completed){
