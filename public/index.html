@@ -1,0 +1,51 @@
+<html ng-app="appTest">
+        <head>
+            <link rel="stylesheet" type="text/css" href="../css/generalStyle.css">
+        </head> 
+        <body>
+            <div class="nav-bar" ng-controller="nav-barController">
+                <ul>
+                    <li><a>Home</a></li>
+                    <li><a>Sobre</a></li>
+                </ul>
+            </div>
+            <div ng-controller="listController" style="width: 100%;">
+                <h1>Todo List</h1>
+                <div class="inputs">
+                    <label>What you want to do ?</label>
+                    <input type="text" name="task" ng-model="task.name" placeholder="Task name" required />
+                    <button ng-click="addItem()" class=". btn btnAdd">Adicionar </button>
+                </div>
+                <br>
+                <br>
+                <h2>Todo Tasks</h2>
+                <br>
+                <div style="overflow: auto; height: 50%; width: 55%;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Task Name</th>
+                                <th>Task status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="task in todoList" ng-class="{'completed': task.completed}">
+                                <td>{{ task.name }}</td>
+                                <td><input type="checkbox" ng-model="task.completed"></td>
+                                <td><button ng-click="deletItem(this)" class="btn btnDelet">Delet</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+                <button ng-click="deletItems()" class="btn btnDelet">Delet completed tasks</button>
+                
+                <script type="text/javascript" src="../lib/angular.min.js"></script>
+                <script type="text/javascript" src="../js/module.js"></script>
+                <script type="text/javascript" src="../js/listController.js"></script>
+                <script type="text/javascript" src="../js/nav-barController.js"></script>
+            </div>
+        </body>
+</html>
